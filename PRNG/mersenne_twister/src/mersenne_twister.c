@@ -30,7 +30,6 @@ void mt_twist(){
         mt_init(0x2ED05EEDUL);
 
     uint32_t temp= 0;
-    uint32_t lb_idx= 0; //lookback index
     for(int i=0;i<N;i++){
         temp = (mt_arr[i]&UPPER_MASK)|(mt_arr[i+1]&LOWER_MASK);
         mt_arr[i] = mt_arr[(i+M)%624] ^ (temp >> 1) ^ (temp & 0x1UL ? MATRIX_A_VECTOR : 0UL);
